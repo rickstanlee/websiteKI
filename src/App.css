@@ -1,5 +1,11 @@
-.App {
-  text-align: center;
+html, body, #root, .App, #WindowMain, #CesiumContainer {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .App-logo {
@@ -35,4 +41,254 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+#HeaderTop{
+  position: absolute;
+  width: 100%;
+  height: 123px;
+  background-color: rgba(0, 0, 0, 0.693);
+  z-index: 9;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  opacity: 0;
+  user-select: none;
+  transition: height 0.3s ease, opacity 0.3s ease; /* Added transition */
+  pointer-events: none;
+}
+
+#HeaderTop:hover,#HeaderTop:focus-within{
+  opacity: 1;
+}
+
+#header-text {
+  font-size: 4vw;
+  letter-spacing: 2.3vw;
+  width: 60%;
+  font-weight: bold;
+  text-align: center;
+  color: whitesmoke;
+  -webkit-text-stroke: 1px #15ff00; 
+  color: rgba(0, 0, 0, 0.69);
+}
+
+.cyplogo{
+  width: 100px;
+  height: 100px;
+}
+
+#WindowLeft{
+  position: absolute;
+  top: 10%;
+  width: 15%;
+  height: 80%;
+  background-color: green;
+}
+
+#WindowRight{
+  position: absolute;
+  top: 10%;
+  left: 85%;
+  width: 15%;
+  height: 80%;
+  background-color: green;
+  opacity: 0.23;
+  z-index: 3;
+  pointer-events: none;
+}
+
+#WindowMain{
+  position: absolute;
+  top: 0%;
+  width: 100%;
+  left: 0%;
+  height:100%;
+  background-color: black;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#CesiumContainer{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+}
+
+#WindowBottom {
+  position: absolute;
+  top: calc(100% - 60px);
+  height: 60px;
+  width: 100%;
+  left: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
+  opacity: 0.7;
+  z-index: 9;
+  display: flex;
+  scrollbar-color: rgba(255, 255, 255, 0.6) rgba(255, 255, 255, 0.1); /* Farbe des Thumbs und des Tracks */
+  scrollbar-width: thin; /* 'thin', 'auto' oder 'none' */
+}
+
+/* Styling für Webkit-Browser wie Chrome und Safari */
+#WindowBottom::-webkit-scrollbar {
+  width: 8px; /* Breite der Scrollbar */
+  height: 8px; /* Höhe der Scrollbar für horizontale Scrollbars */
+}
+
+#WindowBottom::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1); /* Hintergrund des Scrollbar-Tracks */
+  border-radius: 10px;
+}
+
+#WindowBottom::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.6); /* Farbe des Scrollbar-Thumbs */
+  border-radius: 10px;
+  border: 2px solid transparent; /* Transparenter Rand, der den Thumb von der Track trennt */
+  background-clip: content-box; /* Sorgt dafür, dass der Hintergrund innerhalb des Borders ist */
+}
+
+#WindowBottom::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.8); /* Hellere Farbe beim Hovern */
+}
+
+#WindowBottom.focused{
+  top: 50%;
+  height: 50%;
+}
+
+#HeaderContainer{
+  width: 100%;
+  height: 15%;
+  background-color: orange;
+}
+
+#TerminalOuterContainer, #TerminalVisualizerOuterContainer {
+  position: relative;
+  height: 98%;
+  float: left;
+  width: 50%;
+  border: 1px solid #15ff00;
+  background-color: black;
+}
+
+#TerminalHeader{
+  height: 60px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  color: whitesmoke;
+  font-size: 24px;
+  align-items: center;
+  border: 1px solid #15ff00;
+}
+
+#TerminalVisualizerHeader {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 60px; /* Höhe der Navbar */
+  width: 100%;
+  background-color: none;
+  color: #333;
+  font-size: 18px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+  border: 1px solid #15ff00;
+}
+
+.nav-item {
+  padding: 10px 20px;
+  cursor: pointer;
+  color: rgba(245, 245, 245, 0.752);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-item:hover {
+  border-bottom: 3px solid #15ff00;
+  color: whitesmoke;
+}
+
+.nav-item.active {
+  font-weight: bold;
+  color: whitesmoke; /* Dunklere Schrift für den aktiven Modus */
+  border-bottom: 3px solid #15ff00; /* Unterstreichung für den aktiven Modus */
+}
+
+#TerminalVisualizerInnerContainer{
+  position: relative;
+  height: calc(100% - 60px);
+  width: 100%;
+}
+
+#TerminalInnerContainer {
+  position: relative;
+  padding: 0%;
+  left: 1%;
+  top: 5%;
+  width: 98%;
+  height: 90%; 
+  overflow: visible;
+}
+
+
+#DatenbankContainer{
+  color: white;
+  height: calc(100% - 2px);
+  width: calc(100% - 2px);
+}
+
+#json-visualizer-inner-container{
+  height: 80%;
+  width: 100%;
+}
+
+#json-data-container{
+  overflow-y: auto;
+  height: 100%;
+  width: 100%;
+}
+
+#ThreeJS-Container{
+  width: 25%;
+  height: 100%;
+  border: 1px solid #15ff00;
+}
+
+#MonacoContainer{
+  position: relative;
+  width: calc(100% - 2px);
+  height: calc(85% - 2px);
+  border: 1px solid #15ff00;
+  background-color: aliceblue;
+}
+
+#code-execute-container{
+  width: 100%;
+  height: 15%;
+  background-color: none;
+}
+
+#code-control-bar{
+  width: 100%;
+  height: 100%;
+  color: white;
+  font-size: 1.23rem;
+  background-color: #003a05;
+}
+
+#code-control-bar:hover{
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.json-data-simple-value{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
+  gap: 10px;
 }
